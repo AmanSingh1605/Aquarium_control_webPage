@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aquarium</title>
+    <link rel="icon" type="image/x-icon" href="aquarium.png" />
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+	  //Paste here
+	  //Firebase cdn configuration  
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+    </script>
+    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <!-- home page  -->
+    <div id="home-page" style="display: block">
+      <!-- Navbar top -->
+      <nav
+        class="navbar navbar-expand-lg bg-body-tertiary fixed-top"
+        data-bs-theme="dark"
+      >
+        <div class="container-fluid">
+          <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img
+                  src="aquarium.png"
+                  alt="Logo"
+                  width="50"
+                  height="50"
+                  class="d-inline-block align-text-center"
+                />
+                Aquarium
+              </a>
+            </div>
+          </nav>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="readingpage()"
+                  >Readings</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="graphpage()">Graphs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="contactpage()"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <!-- carousel -->
+      <div id="carouselCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="3.jpg" class="d-block w-100" alt="bg1test.png" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Save Sea Animals</h5>
+              <p>Sea Life matters</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="1_1.jpg" class="d-block w-100" alt="bg1.jpg" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Interactive Aquariums</h5>
+              <p>Easy, Low maintainence, Low-Cost</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="2.jpg" class="d-block w-100" alt="bg1test.png" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Easy to access</h5>
+              <p>Control Through your Devices</p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- Features -->
+      <div class="container px-4 py-5" id="hanging-icons">
+        <h2 class="pb-2 border-bottom">Features</h2>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+          <div class="col d-flex align-items-start">
+            <div
+              class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+            >
+              <i class="bi bi-activity"></i>
+            </div>
+            <div>
+              <h3 class="fs-2">Live Readings</h3>
+              <p>
+                Get live readings of Aquarium on your device. Wheather you are
+                near or far<br />
+              </p>
+              <a
+                href="#"
+                class="icon-link d-inline-flex align-items-center"
+                onclick="readingpage()"
+              >
+                Live Readings>
+              </a>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <div
+              class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+            >
+              <i class="bi bi-graph-up"></i>
+            </div>
+            <div>
+              <h3 class="fs-2">Graph Representaion</h3>
+              <p>
+                Analayze the Data using Graph Representaion. Use it to Analayze
+                the condition of Aquarium Tank.
+              </p>
+              <a
+                href="#"
+                class="icon-link d-inline-flex align-items-center"
+                onclick="graphpage()"
+              >
+                Graphs>
+                <svg class="bi" width="1em" height="1em">
+                  <use xlink:href="#chevron-right"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <div
+              class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+            >
+              <i class="bi bi-camera2"></i>
+            </div>
+            <div>
+              <h3 class="fs-2">Live Footage</h3>
+              <p>
+                Capture the Live picutre of your tank. Watch your little fishes
+                Anywhere<br />
+              </p>
+              <a href="#" class="icon-link d-inline-flex align-items-center">
+                Capture a photo>
+                <svg class="bi" width="1em" height="1em">
+                  <use xlink:href="#chevron-right"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--intergrate features-->
+      <div class="container px-4 py-5" id="icon-grid">
+        <h2 class="pb-2 border-bottom">Plateforms</h2>
+        <div
+          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5"
+        >
+          <div class="col d-flex align-items-start">
+            <div
+              class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+            >
+              <i class="bi bi-telegram"></i>
+            </div>
+            <div>
+              <h3 class="fw-bold mb-2 fs-4">Telegram Bot</h3>
+              <p>Get All Updates on Your personal Bot.</p>
+              <a
+                href="https://t.me/AquariumAlertBot"
+                class="icon-link d-inline-flex align-items-center"
+              >
+                Link to Bot >
+                <svg class="bi" width="1em" height="1em">
+                  <use xlink:href="#chevron-right"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <div
+              class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+            >
+              <i class="bi bi-fire" style="color: orangered"></i>
+            </div>
+            <div>
+              <h3 class="fw-bold mb-2 fs-4">Fire Base</h3>
+              <p>
+                Use FireBase. Fast Response and Never miss any details, get
+                update every minute.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div class="container">
+        <footer class="py-3 my-4">
+          <p class="nav justify-content-center border-bottom pb-3 mb-3"></p>
+          <p class="text-center text-muted">© 2023 Made by AmAn,</p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- reading page  -->
+    <div id="reading-page" style="display: none">
+      <nav
+        class="navbar navbar-expand-lg bg-body-tertiary fixed-top"
+        data-bs-theme="dark"
+      >
+        <div class="container-fluid">
+          <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img
+                  src="aquarium.png"
+                  alt="Logo"
+                  width="50"
+                  height="50"
+                  class="d-inline-block align-text-center"
+                />
+                Aquarium
+              </a>
+            </div>
+          </nav>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="homepage()">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/"
+                  >Readings</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="graphpage()">Graphs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="contactpage()"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <!--nav bar gap-->
+      <div id="nav_gap" class="container-fluid"></div>
+
+      <!-- container of Reading Tags -->
+      <div class="container-fluid">
+        <!-- Readings -->
+        <h4 class="fs-2 border-bottom ps-4 pb-2 mb-4">Readings</h4>
+
+        <!-- Flip Reading Tags -->
+        <div class="container text-center me-xs-4">
+          <div class="sm-row">
+            <div class="col">
+              <div class="flip">
+                <div
+                  class="front"
+                  style="
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-image: url(reading_temp.png);
+                  "
+                >
+                  <h1 class="text-shadow">Temperature</h1>
+                </div>
+                <div class="back">
+                  <p class="h4 border-bottom text-white">
+                    Current Temp: <span id="cur-temp"> 30 </span>
+                    &#8451;
+                  </p>
+                  <p class="h4 border-bottom text-white">
+                    Previous Reading: <span id="prev-temp">-</span>&#8451;
+                  </p>
+                  <p class="text-info my-4">
+                    Most tank fish do well at temperatures from 75-80 degrees
+                    Fahrenheit (23-27 degrees Celsius), but the needs of
+                    specific fish can vary.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="flip">
+                <div
+                  class="front"
+                  style="background-image: url(reading_water.jpg)"
+                >
+                  <h1 class="text-shadow">Water Level</h1>
+                </div>
+                <div class="back">
+                  <p class="h4 border-bottom text-white">
+                    Current Level: <span id="cur-lev"> 30</span>cm
+                  </p>
+                  <p class="h4 border-bottom text-white">
+                    Previous Level: <span id="prev-lev">-</span>cm
+                  </p>
+                  <p class="text-info">
+                    Keep an eye on how much water is in your aquarium—most
+                    filters need the water level to be about one inch from the
+                    lip of the filter. Make sure your bubble walls and/or air
+                    stones are not directly under the intake tube.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sm-row">
+            <div class="col">
+              <div class="flip">
+                <div
+                  class="front"
+                  style="background-image: url(reading_oxygen.jpg)"
+                >
+                  <h1 class="text-shadow">Oxygen</h1>
+                </div>
+                <div class="back">
+                  <p class="h4 border-bottom text-white">
+                    Current level: <span id="cur-oxy">30</span>%
+                  </p>
+                  <p class="h4 border-bottom text-white">
+                    Previous level: <span id="prev-oxy">-</span>%
+                  </p>
+                  <p class="text-info">
+                    Oxygen requirements vary between fish species, however, it
+                    is recommended your aquarium water has an 80-110% oxygen
+                    saturation and DO level of 6-8 mg/L. Supersaturation
+                    (anything >115%) in aquariums should be avoided.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="flip">
+                <div
+                  class="front"
+                  style="background-image: url(reading_turbudity.png)"
+                >
+                  <h1 class="text-shadow">Turbudity</h1>
+                </div>
+                <div class="back">
+                  <p class="h4 border-bottom text-white">
+                    Current Level: <span id="cur-turb">30</span>%
+                  </p>
+                  <p class="h4 border-bottom text-white">
+                    Previous Reading: <span id="prev-turb">-</span>%
+                  </p>
+                  <p class="text-info my-4">
+                    Turbidities caused by suspended particles are often the
+                    consequence if the muck at the bottom of the tank is
+                    disturbed, or by fine substrate particles, e. g. through the
+                    activities of burrowing fish or if you redecorate your tank.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- control buttons -->
+      <div class="container-fluid">
+        <h4 class="fs-2 border-bottom ps-4 pb-2 mb-4">Controls</h4>
+        <div class="container w-50 text-center">
+          <div id="master" class="container text-center">
+            <div class="controls-sec row m-sm-2 text-center">
+              <div
+                class="col border border-success text-success my-sm-2 me-sm-5 rounded"
+                style="
+                  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+                    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+                    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+                "
+              >
+                <h3>Temperature</h3>
+                <p class="fs-5 fw-bolder">
+                  Status:<span class="temp-status"></span>
+                </p>
+                <button
+                  class="status-button mb-sm-4"
+                  role="button"
+                  id="temp"
+                  onclick="tempbtn()"
+                >
+                  Switch On
+                </button>
+              </div>
+              <div
+                class="col border border-success text-success my-sm-2 ms-sm-5 rounded"
+                style="
+                  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+                    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+                    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+                "
+              >
+                <h3>Oxygen Pump</h3>
+                <p class="fs-5 fw-bolder">
+                  Status:<span class="oxygen-status"></span>
+                </p>
+                <button
+                  class="status-button mb-4"
+                  role="button"
+                  id="oxygen"
+                  onclick="oxybtn()"
+                >
+                  Switch On
+                </button>
+              </div>
+            </div>
+            <div class="controls-sec row m-sm-2">
+              <div
+                class="col border border-success text-success my-sm-2 me-sm-5 rounded"
+                style="
+                  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+                    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+                    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+                "
+              >
+                <h3>Feeder</h3>
+                <p class="fs-5 fw-bolder">
+                  Status:<span class="feeder-status"></span>
+                </p>
+                <button
+                  class="status-button mb-4"
+                  role="button"
+                  id="feeder"
+                  onclick="feederbtn()"
+                >
+                  Switch On
+                </button>
+              </div>
+              <div
+                class="col border border-success text-success my-sm-2 ms-sm-5 rounded"
+                style="
+                  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+                    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+                    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+                "
+              >
+                <h3>Light</h3>
+                <p class="fs-5 fw-bolder">
+                  Status:<span class="light-status"></span>
+                </p>
+                <button
+                  class="status-button mb-4"
+                  role="button"
+                  id="light"
+                  onclick="lightbtn()"
+                >
+                  Switch On
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- graph page  -->
+    <div id="graph-page" style="display: none">
+      <nav
+        class="navbar navbar-expand-lg bg-body-tertiary fixed-top"
+        data-bs-theme="dark"
+      >
+        <div class="container-fluid">
+          <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img
+                  src="aquarium.png"
+                  alt="Logo"
+                  width="50"
+                  height="50"
+                  class="d-inline-block align-text-center"
+                />
+                Aquarium
+              </a>
+            </div>
+          </nav>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-sm-auto mb-sm-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="homepage()">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="readingpage()"
+                  >Readings</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Graphs</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="contactpage()"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div
+        id="nav_gap"
+        class="container-fluid"
+        style="padding-bottom: 5rem"
+      ></div>
+
+      <div class="container-fluid">
+        <div class="row">
+          <nav
+            id="sidebarMenu"
+            class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse"
+          >
+            <div class="position-fixed h-100 pt-3 sidebar-sticky">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="#"
+                    onclick="homepage()"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-home align-text-bottom"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                      ></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Dashboard
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#today_data">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-file align-text-bottom"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+                      ></path>
+                      <polyline points="13 2 13 9 20 9"></polyline>
+                    </svg>
+                    Readings
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-shopping-cart align-text-bottom"
+                      aria-hidden="true"
+                    >
+                      <circle cx="9" cy="21" r="1"></circle>
+                      <circle cx="20" cy="21" r="1"></circle>
+                      <path
+                        d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                      ></path>
+                    </svg>
+                    Products
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Contact.html">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-users align-text-bottom"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+                      ></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Contact Us
+                  </a>
+                </li>
+              </ul>
+
+              <h6
+                class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase"
+              >
+                <span>Saved reports</span>
+                <a
+                  class="link-secondary"
+                  href="#"
+                  aria-label="Add a new report"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-plus-circle align-text-bottom"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="16"></line>
+                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                  </svg>
+                </a>
+              </h6>
+              <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-file-text align-text-bottom"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                      ></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                      <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    Current month
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-file-text align-text-bottom"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                      ></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                      <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    Last quarter
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-file-text align-text-bottom"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                      ></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                      <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    Social engagement
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-file-text align-text-bottom"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                      ></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                      <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    Year-end report
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+            >
+              <h1 class="h2">Graph</h1>
+              <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group me-2">
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary"
+                  >
+                    Share
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary"
+                  >
+                    Export
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- graph div  -->
+            <!-- Temperature -->
+            <div
+              class="myChart my-4 w-100"
+              id="myChart-Temp"
+              width="1476"
+              height="623"
+              style="display: block"
+            ></div>
+            <!-- water Level -->
+            <div
+              class="myChart my-4 w-100"
+              id="myChart-level"
+              width="1476"
+              height="623"
+              style="display: none"
+            ></div>
+            <div
+              class="myChart my-4 w-100"
+              id="myChart-oxygen"
+              width="1476"
+              height="623"
+              style="display: none"
+            ></div>
+            <div
+              class="myChart my-4 w-100"
+              id="myChart-turb"
+              width="1476"
+              height="623"
+              style="display: none"
+            ></div>
+            <div class="container mb-5">
+              <form>
+                <div class="radio-group">
+                  <input
+                    type="radio"
+                    id="Temp-radio"
+                    name="selector"
+                    checked
+                  /><label for="Temp-radio">Temperature</label
+                  ><input type="radio" id="Level-radio" name="selector" /><label
+                    for="Level-radio"
+                    >Water Level</label
+                  ><input
+                    type="radio"
+                    id="Oxygen-radio"
+                    name="selector"
+                  /><label for="Oxygen-radio">Oxygen</label
+                  ><input
+                    type="radio"
+                    id="Turbidity-radio"
+                    name="selector"
+                  /><label for="Turbidity-radio">Turbuidity</label>
+                </div>
+              </form>
+            </div>
+
+            <h2 id="today_data">Today's Data</h2>
+            <div class="table-responsive">
+              <table class="table table-striped table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">S.no.</th>
+                    <th scope="col">Temperature</th>
+                    <th scope="col">Turbuidity</th>
+                    <th scope="col">Oxygen Level</th>
+                    <th scope="col">Water Level</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>27</td>
+                    <td>2</td>
+                    <td>12</td>
+                    <td>50</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <!-- contact page  -->
+    <div id="contact-page" style="display: none">
+      <nav
+        class="navbar navbar-expand-lg bg-body-tertiary fixed-top"
+        data-bs-theme="dark"
+      >
+        <div class="container-fluid">
+          <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img
+                  src="aquarium.png"
+                  alt="Logo"
+                  width="50"
+                  height="50"
+                  class="d-inline-block align-text-center"
+                />
+                Aquarium
+              </a>
+            </div>
+          </nav>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="#"
+                  onclick="homepage()"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="readingpage()"
+                  >Readings</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="graphpage()">Graphs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Contact Us</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <section class="section gray-bg" id="contactus">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>&nbsp &nbsp &nbsp Any Trouble?? We are here for you!!!</p>
+              </div>
+            </div>
+          </div>
+          <div class="row flex-row-reverse">
+            <div class="col-md-7 col-lg-8 m-15px-tb">
+              <div class="contact-form">
+                <form
+                  action="/"
+                  method="post"
+                  class="contactform contact_form"
+                  id="contact_form"
+                >
+                  <div
+                    class="returnmessage valid-feedback p-15px-b"
+                    data-success="Your message has been received, We will contact you soon."
+                  ></div>
+                  <div class="empty_notice invalid-feedback p-15px-b">
+                    <span>Please Fill Required Fields</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input
+                          id="name"
+                          type="text"
+                          placeholder="Full Name"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input
+                          id="email"
+                          type="text"
+                          placeholder="Email Address"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-group">
+                        <input
+                          id="subject"
+                          type="text"
+                          placeholder="Subject"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <textarea
+                          id="message"
+                          placeholder="Message"
+                          class="form-control"
+                          rows="3"
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="send">
+                        <a id="send_message" class="px-btn theme" href="#"
+                          ><span>Contact Us</span> <i class="arrow"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-md-5 col-lg-4 m-15px-tb">
+              <div class="contact-name">
+                <h5>Mail</h5>
+                <p>
+                  <a href="https://mail.google.com/mail/u/0/#inbox"
+                    >singh9455818334@gmail.com</a
+                  >
+                  <a href="https://mail.google.com/mail/u/0/#inbox"
+                    >swapnilkumar741@gamil.com</a
+                  >
+                </p>
+              </div>
+              <div class="contact-name">
+                <h5>Visit Us</h5>
+                <p>Rajkiya Engineering College, <br />Sonbhadra</p>
+              </div>
+              <div class="contact-name">
+                <h5>Phone</h5>
+                <p>9548240649,<br />9616405089</p>
+              </div>
+              <div class="social-share nav">
+                <a class="facebook" href="#">
+                  <i
+                    class="fa-brands fa-facebook fa-2xl"
+                    style="color: #223d6d"
+                  ></i>
+                </a>
+                <a class="insta" href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    data-name="Layer 1"
+                    viewBox="0 0 33 33"
+                    id="instagram"
+                    width="33"
+                    height="33"
+                  >
+                    <defs>
+                      <clipPath id="b">
+                        <path
+                          cx="64"
+                          cy="64"
+                          r="64"
+                          fill="none"
+                          d="M33 16.5A16.5 16.5 0 0 1 16.5 33 16.5 16.5 0 0 1 0 16.5a16.5 16.5 0 0 1 33 0z"
+                        />
+                      </clipPath>
+                      <clipPath id="c">
+                        <path
+                          fill="none"
+                          d="M26.813 -42.022H6.188A6.207 6.207 0 0 0 0 -35.834v20.625a6.207 6.207 0 0 0 6.188 6.188h20.625a6.207 6.207 0 0 0 6.188 -6.188v-20.625a6.207 6.207 0 0 0 -6.188 -6.188Zm4.125 26.813a4.125 4.125 0 0 1 -4.125 4.125H6.188a4.125 4.125 0 0 1 -4.125 -4.125v-20.625a4.125 4.125 0 0 1 4.125 -4.125h20.625a4.125 4.125 0 0 1 4.125 4.125Z"
+                        />
+                      </clipPath>
+                      <clipPath id="e">
+                        <path
+                          cx="82"
+                          cy="209"
+                          r="5"
+                          fill="none"
+                          d="M22.431 53.882a1.291 1.291 0 0 1 -1.291 1.291 1.291 1.291 0 0 1 -1.291 -1.291 1.291 1.291 0 0 1 2.578 0z"
+                        />
+                      </clipPath>
+                      <clipPath id="g">
+                        <path
+                          fill="none"
+                          d="M16.5 -29.647a4.125 4.125 0 0 0 -4.125 4.125 4.125 4.125 0 0 0 4.125 4.125 4.125 4.125 0 0 0 4.125 -4.125 4.125 4.125 0 0 0 -4.125 -4.125Zm0 6.188a2.063 2.063 0 0 1 -2.063 -2.063 2.063 2.063 0 0 1 2.063 -2.063 2.063 2.063 0 0 1 2.063 2.063 2.063 2.063 0 0 1 -2.063 2.063Z"
+                        />
+                      </clipPath>
+                      <clipPath id="h">
+                        <path
+                          fill="none"
+                          d="M21.657 -16.243H11.344a4.125 4.125 0 0 1 -4.125 -4.125V-30.681a4.125 4.125 0 0 1 4.125 -4.125H21.657a4.125 4.125 0 0 1 4.125 4.125v10.313a4.125 4.125 0 0 1 -4.125 4.125Zm-10.313 -16.5a2.063 2.063 0 0 0 -2.063 2.063v10.313a2.063 2.063 0 0 0 2.063 2.063H21.657a2.063 2.063 0 0 0 2.063 -2.063v-10.313a2.063 2.063 0 0 0 -2.063 -2.063Z"
+                        />
+                      </clipPath>
+                      <clipPath id="i">
+                        <path
+                          cx="82"
+                          cy="-117"
+                          r="5"
+                          fill="none"
+                          d="M22.431 -30.166a1.291 1.291 0 0 1 -1.291 1.291 1.291 1.291 0 0 1 -1.291 -1.291 1.291 1.291 0 0 1 2.578 0z"
+                        />
+                      </clipPath>
+                      <radialGradient
+                        id="a"
+                        cx="27.5"
+                        cy="121.5"
+                        r="137.5"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop offset="0" stop-color="#ffd676" />
+                        <stop offset=".25" stop-color="#f2a454" />
+                        <stop offset=".38" stop-color="#f05c3c" />
+                        <stop offset=".7" stop-color="#c22f86" />
+                        <stop offset=".96" stop-color="#6666ad" />
+                        <stop offset=".99" stop-color="#5c6cb2" />
+                      </radialGradient>
+                      <radialGradient
+                        id="d"
+                        cx="27.5"
+                        cy="-41.5"
+                        r="148.5"
+                        xlink:href="#a"
+                      />
+                      <radialGradient
+                        id="f"
+                        cx="13.87"
+                        cy="303.38"
+                        r="185.63"
+                        xlink:href="#a"
+                      />
+                      <radialGradient
+                        id="j"
+                        cx="13.87"
+                        cy="-22.62"
+                        r="185.63"
+                        xlink:href="#a"
+                      />
+                    </defs>
+                    <g clip-path="url(#b)">
+                      <path
+                        cx="27.5"
+                        cy="121.5"
+                        r="137.5"
+                        fill="url(#a)"
+                        d="M42.54 31.324a35.449 35.449 0 0 1 -35.451 35.449 35.449 35.449 0 0 1 -35.449 -35.449 35.449 35.449 0 0 1 70.897 0z"
+                      />
+                    </g>
+                    <g clip-path="url(#c)">
+                      <path
+                        cx="27.5"
+                        cy="-41.5"
+                        r="148.5"
+                        fill="url(#d)"
+                        d="M45.375 -10.699A38.287 38.287 0 0 1 7.088 27.584a38.287 38.287 0 0 1 -38.284 -38.284 38.287 38.287 0 0 1 76.569 0z"
+                      />
+                    </g>
+                    <g clip-path="url(#e)">
+                      <path
+                        cx="13.87"
+                        cy="303.38"
+                        r="185.63"
+                        fill="url(#f)"
+                        d="M51.434 78.217a47.857 47.857 0 0 1 -47.857 47.857 47.857 47.857 0 0 1 -47.857 -47.857 47.857 47.857 0 0 1 95.716 0z"
+                      />
+                    </g>
+                    <g clip-path="url(#g)">
+                      <path
+                        cx="27.5"
+                        cy="-41.5"
+                        r="148.5"
+                        fill="url(#d)"
+                        d="M45.375 -10.699A38.287 38.287 0 0 1 7.088 27.584a38.287 38.287 0 0 1 -38.284 -38.284 38.287 38.287 0 0 1 76.569 0z"
+                      />
+                    </g>
+                    <g clip-path="url(#h)">
+                      <path
+                        cx="27.5"
+                        cy="-41.5"
+                        r="148.5"
+                        fill="url(#d)"
+                        d="M45.375 -10.699A38.287 38.287 0 0 1 7.088 27.584a38.287 38.287 0 0 1 -38.284 -38.284 38.287 38.287 0 0 1 76.569 0z"
+                      />
+                    </g>
+                    <g clip-path="url(#i)">
+                      <path
+                        cx="13.87"
+                        cy="-22.62"
+                        r="185.63"
+                        fill="url(#j)"
+                        d="M51.434 -5.831A47.857 47.857 0 0 1 3.577 42.025 47.857 47.857 0 0 1 -44.283 -5.831a47.857 47.857 0 0 1 95.716 0z"
+                      />
+                    </g>
+                    <path
+                      cx="82"
+                      cy="46"
+                      r="5"
+                      fill="#fff"
+                      d="M22.431 11.86a1.291 1.291 0 0 1 -1.291 1.291 1.291 1.291 0 0 1 -1.291 -1.291 1.291 1.291 0 0 1 2.578 0z"
+                    />
+                    <path
+                      fill="#fff"
+                      d="M16.5 12.375a4.125 4.125 0 1 0 4.125 4.125 4.125 4.125 0 0 0 -4.125 -4.125Zm0 6.188a2.063 2.063 0 1 1 2.063 -2.063 2.063 2.063 0 0 1 -2.063 2.063Z"
+                    />
+                    <path
+                      width="64"
+                      height="64"
+                      x="32"
+                      y="32"
+                      fill="none"
+                      stroke="#fff"
+                      stroke-miterlimit="10"
+                      stroke-width="2.0625"
+                      rx="12"
+                      ry="12"
+                      d="M11.345 8.25h10.313a3.095 3.095 0 0 1 3.092 3.095v10.313a3.095 3.095 0 0 1 -3.093 3.092H11.344a3.095 3.095 0 0 1 -3.094 -3.093V11.344a3.095 3.095 0 0 1 3.095 -3.094z"
+                    />
+                  </svg>
+                </a>
+                <a class="telegram" href="#">
+                  <i
+                    class="fa-brands fa-telegram fa-2xl"
+                    style="color: #223659"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- scripts declaration here  -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a4d9744ed2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/index.js"></script>
+    <script type="module" src="script/Reading.js"></script>
+    <script type="module" src="script/graph.js"></script>
+  </body>
+</html>
